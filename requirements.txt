@@ -6,4 +6,7 @@ seaborn
 wordcloud
 urlextract
 collections-extended
+firebase_admin
+streamlit_option_menu
+python-dotenv
 # nothing
