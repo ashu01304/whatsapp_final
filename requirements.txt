@@ -10,5 +10,5 @@ firebase_admin
 streamlit_option_menu
 python-dotenv
 bcrypt
-os
+
 # nothing
