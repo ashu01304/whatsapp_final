@@ -6,7 +6,7 @@ def process_data(messages):
     messages = messages.splitlines()
     
     # Regular expression to extract date, time, sender, and message
-    pattern = r'(\d{2})/(\d{2})/(\d{4}), (\d{1,2}:\d{2}\s*[apAP][mM]) - (.*?): (.*)'
+    pattern = r'(\d{2})/(\d{2})/(\d{2,4}), (\d{1,2}:\d{2}\s*[apAP][mM]) - (.*?): (.*)'
 
     data = []  # List to store parsed messages
 
@@ -18,6 +18,8 @@ def process_data(messages):
             month_number = match.group(2)  # Month number (to be used for both the number and the full name)
             month = datetime.strptime(month_number, "%m").strftime("%B")  # Full month name
             year = match.group(3)          # Year
+            if len(year) == 2:
+                year = '20' + year
             time = match.group(4)          # Time
             sender = match.group(5)        # Sender
             text = match.group(6)          # Message
